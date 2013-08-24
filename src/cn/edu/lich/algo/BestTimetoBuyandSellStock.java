@@ -6,8 +6,8 @@ public class BestTimetoBuyandSellStock {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		BestTimetoBuyandSellStock bbs = new BestTimetoBuyandSellStock();
+		System.out.println(bbs.maxProfit2(new int[] {1, 2}));
 	}
 	
 	public int maxProfit(int[] prices) {
@@ -23,5 +23,25 @@ public class BestTimetoBuyandSellStock {
         }
         return maxProfit;
     }
+	
+	
+	public int maxProfit2(int[] prices){
+		int maxProfit = 0;
+//		int buy = 0;
+//		int sell = 0;
+		int min = 0;
+		for(int i = 0; i < prices.length; i++){
+			if(prices[min] > prices[i]) {
+				min = i;
+			}
+			int profit = prices[i] - prices[min];
+			if(profit > maxProfit) {
+				maxProfit = profit;
+//				buy = min;
+//				sell = i;
+			}
+		}
+		return maxProfit;
+	}
 
 }
